@@ -42,7 +42,6 @@ void PMTree::buildTree(Node* parent, const std::vector<char>& remaining) {
 std::vector<std::vector<char>> PMTree::getAllPerms() const {
   std::vector<std::vector<char>> result;
   if (!root) return result;
-  
   std::vector<char> current;
   for (const auto& child : root->children) {
     collectPerms(child.get(), current, result);
@@ -52,7 +51,6 @@ std::vector<std::vector<char>> PMTree::getAllPerms() const {
 void PMTree::collectPerms(const Node* node, std::vector<char>& current,
                          std::vector<std::vector<char>>& result) const {
   current.push_back(node->value);
-  
   if (node->children.empty()) {
     result.push_back(current);
   } else {
